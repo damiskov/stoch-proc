@@ -322,6 +322,44 @@ $$\mathbb{E}\left[X\right] = \mathbb{E} \left[ \sum\limits_{i=1}^{n}1 \left( A_{
 $$\mathbb{V} \left[X\right] = \sum\limits_{i=1}^{n} \mathbb{V} 1 \left( A_{i} \right)=np(1-p)$$
 
 because $\left\{ A_{i}: i = 1, \dots , n \right\}$ are (pairwise) independent.
+
+### Problem
+
+Let $X \sim B \left( n, p \right)$ and $Y \sim B \left( m, p \right)$ be independent. Show that $Z=X+Y \sim B \left( n+m, p \right)$.
+
+**Solution:** Consider $n+m$ independent Bernoulli trials, each with probability $p$.
+
+Set $X = \sum\limits_{i=1}^{n}1 \left( A_{i} \right)$ and $Y = \sum\limits_{i=n+1}^{n+m} 1 \left( A_{i} \right)$
+
+Then $X$ and $Y$ are as in the problem, and
+$$Z = \sum\limits_{i=1}^{n+m} 1 \left( A_{i} \right) \sim B \left( n, p \right)$$
+## The Bernoulli Process
+
+- Sample space $\Omega$ is the set of functions $\mathbb{N} \mapsto \left\{ 0, 1 \right\}$
+- Introduce events $A_{i}$ for the "$i$'th toss showed heads".
+	- Strictly $A_{i} = \left\{ \omega : \ \omega \left( i \right) = 1\right\}$
+- Let $\mathcal{F}$ be the smallest $\sigma$-field that contains **all** $A_{i}$
+- Define $P: \ \mathcal{F} \mapsto \left[0,1\right]$ by
+$$P \left( A_{i} \right)=p$$
+and
+$$\left\{ A_{i}: \ i \in \mathbb{N} \right\} \text{ are independent}$$
+## Waiting Times
+
+Let $W_{r}$ be the waiting time for the $r$'th success.
+$$W_{t}= \min \left\{ i: \ \sum\limits_{j=1}^{i} 1 \left( A_{j} \right) = r \right\}$$
+To find the probability mass function of $W_{r}$, note that $W_{r}=k$ is the same event as 
+$$\left( \sum\limits_{i=1}^{k-1} 1 \left( A_{j} \right) = r-1 \right) \cap A_{k}$$
+Since the two events involved here are independent, we get
+$$f_{W} \left( k \right) = P(W_{r}=k) = \begin{pmatrix} k-1 \\ r-1 \end{pmatrix} p^{r} \left( 1-p \right)^{k-r}$$
+## Geometric Distribution
+
+The waiting time $W$ to the first success 
+$$P(W=k) = \left( 1-p \right)^{k-1}p$$
+(first $k-1$ failures and then one success)
+
+The *survival function* is 
+$$G_{W} \left( k \right) = P \left( W > k \right) = \left( 1-p \right)^{k}$$
+
 # Problems
 
 # Notes on Notation
