@@ -76,7 +76,7 @@ When $\Omega$ is finite or enumerable, we can work with $2^\Omega$. Otherwise no
 ## Defining Probabilities for all Events $A$
 - $\mathbb{P}(\emptyset) = 0, \ \mathbb{P}\left( \Omega \right) = 1$
 - If $A_{1}, A_{2}, \dots$ are mutually excluding events (i.e., $A_{i} \cap A_{j} = \emptyset$ for $i \neq j$), then
-$$\mathbb{P} \left( \bigcup_{i \in \mathbb{N}}^{\infty} A_{i} = \sum\limits_{i=1}^{\infty} \mathbb{P} \left( A_{i} \right) \right)$$
+$$\mathbb{P} \left( \bigcup_{i \in \mathbb{N}}^{\infty} A_{i}\right) = \sum\limits_{i=1}^{\infty} \mathbb{P} \left( A_{i} \right)$$
 A $\mathbb{P}: \ \mathcal{F} \mapsto \left[0,1\right]$ satisfying the above properties is a *probability measure.* The triple $\left( \Omega, \mathcal{F}, \mathbb{P} \right)$ is called a **probability space.**
 # Conditional Probabilities 
 In stochastic processes, we want to know what to expect from the future, conditional on our past observations.

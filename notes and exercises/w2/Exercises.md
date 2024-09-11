@@ -1,0 +1,69 @@
+# 3.6.1 - Random Walks
+
+A rate is put in a linear maze with $6$ possible states:
+$$\left\{ X_{0} \text{ (shock)}, X_{1}, X_{2}, X_{3} \text{ (rat)}, X_{4}, X_{5} \text{ (food)} \right\}$$
+**a) Assume that the rat is equally likely to move right or left at each step. What is the probability that the rat finds the food before getting shocked?**
+
+I.e., what is the probability of ending up in state $5$, starting in any state $k \in \left\{ 1,2,3,4 \right\}$?
+
+We will assume that both states $0$ and $5$ are absorbing. 
+$$\begin{align}
+\operatorname{P} \left( X_{T}=5 \mid X_{0}=k \right) &=1-\operatorname{P} \left( X_{T}=0 \mid X_{0}=k \right)\\
+\implies \operatorname{P} \left( X_{T}=5 \mid X_{0}=k \right) &= 1-u_{k} \\
+\end{align}$$
+Since $\theta=\frac{q}{p}=1 \implies u_{k} = \frac{N-k}{N}$
+
+
+**(b) As a result of learning, at each step the rat moves to the right with probability $p > \frac{1}{2}$ and to the left with probability $q = 1−p < \frac{1}{2}$. What is the probability that the rat finds the food before getting shocked?**
+
+Same question, but now using the case where $p \neq q:$
+$$\begin{align}
+\operatorname{P} \left( X_{T}=5 \mid X_{0}=k \right) &= 1-u_{k} \\
+&=1-\frac{\left( \frac{q}{p} \right)^{3}-\left( \frac{q}{p} \right)^{5}}{1-\left( \frac{q}{p} \right)^{5}}
+\end{align}$$
+# 3.7.1 - More First-Step Analysis
+
+Given the Markov chain with transition probability matrix is given by
+$$\mathrm{P}=\left\Vert \begin{matrix} 1 & 0 & 0 & 0  \\ 0.1 & 0.2 & 0.5 & 0.2  \\  0.1 & 0.2  & 0.6 & 0.1 \\ 0 & 0 & 0 & 1 \end{matrix} \right\Vert$$
+Re-ordering the matrix ($\left\{ 1,2,3,4 \right\} \rightarrow \left\{2, 3, 1, 4\right\}$)
+
+$$\begin{align}
+\mathrm{P}&=\left\Vert \begin{matrix} \mathbf{Q}  &  \mathbf{R}  \\ \mathbf{0} & \mathbf{I} \end{matrix} \right\Vert\\
+&=\left\Vert \begin{matrix} 0.2 & 0.5 & 0.1 & 0.2 \\ 0.2 & 0.6 & 0.1 & 0.1 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{matrix} \right\Vert
+\end{align}$$
+Therefore, 
+$$\mathrm{Q}=\left\Vert \begin{matrix} 0.2 & 0.5 \\ 0.2 & 0.6 \end{matrix} \right\Vert, \quad \mathrm{R}=\left\Vert \begin{matrix} 0.1 & 0.2 \\ 0.1 & 0.1 \end{matrix} \right\Vert$$
+The fundamental matrix is given by
+$$\begin{align}
+\mathrm{W} &= \left( \mathrm{I}-\mathrm{Q} \right)^{-1}\\
+&= \left\Vert \begin{matrix} 1.82 &  2.27 \\
+0.91  &  3.64 \end{matrix} \right\Vert
+\end{align}$$
+**a) the probability of absorption into state 0 starting from state 1**
+
+- $u_{1}=0.1+0.2u_{1}+0.5u_{2}$
+- $u_{2}=0.1+0.2u_{1}+0.6u_{2}$
+$$\begin{align}
+\mathrm{u} &= \mathrm{Q} \mathrm{u} + \begin{bmatrix} 0.1\\
+0.1 \end{bmatrix}\\
+\implies \mathrm{u} &= \left( \mathrm{I}-\mathrm{Q} \right)^{-1}\begin{bmatrix} 0.1\\
+0.1 \end{bmatrix} \\
+&= \mathrm{W} \begin{bmatrix} 0.1\\
+0.1 \end{bmatrix} \\
+&= \begin{bmatrix}0.409 \\ 0.455\end{bmatrix}
+\end{align}$$
+
+Which is the same as the first column of:
+$$\begin{align}
+\mathrm{U} &= \mathrm{W} \mathrm{R} \\
+&= \left\Vert \begin{matrix} 1.82 &  2.27 \\
+0.91  &  3.64 \end{matrix} \right\Vert \cdot \left\Vert \begin{matrix} 0.1 & 0.2 \\ 0.1 & 0.1 \end{matrix} \right\Vert \\
+&= \left\Vert \begin{matrix} 0.41  & 0.59 \\ 0.45  &  0.55 \end{matrix} \right\Vert
+\end{align}$$
+So the answer is $0.41$.
+
+**b) the mean time spent in each of states 1 and 2 prior to absorption.**
+
+Using the information from [[Markov Chains 2#First Step Analysis (revisited)#Relating the Above to Useful Results#Mean Time to Absorption|the notes]], we know that *The sum of each row $i$ of $\mathbf{W}$ gives us $\mathbb{E} \left[T \mid X_{0}=i\right]=\nu_{i}$*. Therefore,
+
+$$\nu= \begin{bmatrix} 1.82+2.27 \\ 0.91+3.64 \end{bmatrix} = \begin{bmatrix} 4.09  \\ 4.55 \end{bmatrix}$$
