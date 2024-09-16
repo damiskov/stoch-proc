@@ -67,3 +67,44 @@ So the answer is $0.41$.
 Using the information from [[Markov Chains 2#First Step Analysis (revisited)#Relating the Above to Useful Results#Mean Time to Absorption|the notes]], we know that *The sum of each row $i$ of $\mathbf{W}$ gives us $\mathbb{E} \left[T \mid X_{0}=i\right]=\nu_{i}$*. Therefore,
 
 $$\nu= \begin{bmatrix} 1.82+2.27 \\ 0.91+3.64 \end{bmatrix} = \begin{bmatrix} 4.09  \\ 4.55 \end{bmatrix}$$
+# 2.3.3 - Distribution of a Random Sum
+
+Suppose that upon striking a plate a single electron is transformed into a number $X_{1}$ of electrons, where $X_{1}$ is a random variable with mean $\mu$ and standard deviation $\sigma$ . Suppose that each of these electrons strikes a second plate and releases further electrons, independently of each other and each with the same probability distribution as $X_{1}$. Let $X_{2}$ be the total number of electrons emitted from the second plate. Determine the mean and variance of $X_{2}$.
+
+Set up:
+
+This is a random sum $X = \xi_{1}+ \dots +\xi_{N}$ where $N \sim \mathcal{N}\left( \mu, \sigma^2 \right)$ and $\xi \sim \mathcal{N} \left( \mu, \sigma^{2} \right)$.
+
+Therefore,
+$$\begin{align}
+\mathbb{E}\left[\xi_{k}\right] &= \mu, \quad \operatorname{Var}\left( \xi_{k} \right)=\sigma^{2}\\
+\mathbb{E}\left[N\right] &= \nu = \mu, \quad \operatorname{Var} \left( N \right) = \tau^{2} = \sigma^{2}
+\end{align}$$
+
+Using [[Markov Chains 2#Random Sums#Moments of A Random Sum|the moments of a random sum]] we know that 
+$$\begin{align}
+\mathbb{E}\left[X\right] &= \mu \nu \\
+&= \mu^{2}
+\end{align} $$
+and 
+$$\begin{align}
+\operatorname{Var} \left( X \right) &= \nu \sigma^{2} + \mu^{2} \tau^{2}\\
+&= \mu \sigma^{2}+\mu^{2} \sigma^{2}\\
+&= \mu \sigma^{2} \left( 1+\mu \right)
+\end{align}$$
+# 3.9.2 - Probability Generating Functions
+
+**Determine the probability generating function for the offspring distribution in which an individual either dies, with probability $p_0$, or is replaced by two progeny, with probability $p_2$, where $p_0 + p_2 = 1$.**
+
+Offspring distribution: $p_{k} = \operatorname{P} \left( \xi =k \right)$ where $k \in \left\{ 0,2 \right\}$. This has the generating function
+$$\begin{align}
+\phi \left( s \right) &= \mathbb{E}\left[s^{\xi}\right] \\
+&= \sum\limits_{k \in \left\{ 0, 2 \right\}}^{} s^{k} p_{k}\\
+&= s^{0}p_{0}+s^{2}p_{2}\\
+&= p_{0}+s^{2}p_{2}
+\end{align}$$
+We can re-write this in the form of $p_{0}$ alone
+$$\begin{align}
+&= p_{0}+s^{2} \left( 1-p_{0} \right) \\
+&= p_{0} \left( 1-s^{2} \right) + s^{2}
+\end{align}$$
