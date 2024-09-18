@@ -9,17 +9,19 @@ I.e., what is the probability of ending up in state $5$, starting in any state $
 We will assume that both states $0$ and $5$ are absorbing. 
 $$\begin{align}
 \operatorname{P} \left( X_{T}=5 \mid X_{0}=k \right) &=1-\operatorname{P} \left( X_{T}=0 \mid X_{0}=k \right)\\
-\implies \operatorname{P} \left( X_{T}=5 \mid X_{0}=k \right) &= 1-u_{k} \\
+ &= 1-u_{k} \\
 \end{align}$$
-Since $\theta=\frac{q}{p}=1 \implies u_{k} = \frac{N-k}{N}$
-
-
+Since $\theta=\frac{q}{p}=1 \implies u_{k} = \frac{N-k}{N}=1-\frac{3}{5}$. Therefore,
+$$\begin{align}
+\operatorname{P} \left( X_{T}=5 \mid X_{0}=3 \right) &= 1- \left( 1- \frac{3}{5} \right) \\
+&= \frac{3}{5} \checkmark
+\end{align}$$
 **(b) As a result of learning, at each step the rat moves to the right with probability $p > \frac{1}{2}$ and to the left with probability $q = 1−p < \frac{1}{2}$. What is the probability that the rat finds the food before getting shocked?**
 
 Same question, but now using the case where $p \neq q:$
 $$\begin{align}
-\operatorname{P} \left( X_{T}=5 \mid X_{0}=k \right) &= 1-u_{k} \\
-&=1-\frac{\left( \frac{q}{p} \right)^{3}-\left( \frac{q}{p} \right)^{5}}{1-\left( \frac{q}{p} \right)^{5}}
+\operatorname{P} \left( X_{T}=5 \mid X_{0}=3 \right) &= 1-u_{3} \\
+&=1-\frac{\left( \frac{q}{p} \right)^{3}-\left( \frac{q}{p} \right)^{5}}{1-\left( \frac{q}{p} \right)^{5}} \checkmark
 \end{align}$$
 # 3.7.1 - More First-Step Analysis
 
@@ -84,13 +86,13 @@ $$\begin{align}
 Using [[Markov Chains 2#Random Sums#Moments of A Random Sum|the moments of a random sum]] we know that 
 $$\begin{align}
 \mathbb{E}\left[X\right] &= \mu \nu \\
-&= \mu^{2}
+&= \mu^{2} \checkmark
 \end{align} $$
 and 
 $$\begin{align}
 \operatorname{Var} \left( X \right) &= \nu \sigma^{2} + \mu^{2} \tau^{2}\\
 &= \mu \sigma^{2}+\mu^{2} \sigma^{2}\\
-&= \mu \sigma^{2} \left( 1+\mu \right)
+&= \mu \sigma^{2} \left( 1+\mu \right) \checkmark
 \end{align}$$
 # 3.9.2 - Probability Generating Functions
 
