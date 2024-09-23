@@ -253,7 +253,7 @@ Markov chain transition probability matrix is given as
 $$\mathbf{P}=\left\Vert \begin{matrix} 1 & 0 & 0 & 0  \\ 0.1 & 0.6 & 0.1 & 0.2 \\ 0.2 & 0.3 & 0.4 & 0.1 \\ 0 & 0 & 0 & 1 \end{matrix} \right\Vert$$
 **a) Starting in state 1, determine the probability that the Markov chain ends in state 0.**
 
-$T = \min \left\{ n \geq 0 \mid X_{n}=0 \right\}$
+$$T = \min \left\{ n \geq 0 \mid X_{n}=0 \right\}$$
 
 Need to consider other probabilities
 $$u_{i} = \operatorname{P} \left( X_{T}=0 \mid X_{0}= i \right)$$
@@ -292,6 +292,28 @@ $$\nu = \mathbb{E} \left[T \mid X_{0}=0\right]$$
 	- $\nu_{0}=\frac{3}{4}\nu_{0}+ \frac{1}{2}$
 	- $\nu_{0}=2$
 - $\nu_{1}=\frac{1}{2}\nu_{0}+1$
+
+# 3.4.4 - Coin Toss
+
+A coin is tossed repeatedly until two successive heads appear. Find the mean number of tosses required.
+
+Modelling the state space with the following transition probability matrix
+$$\begin{align}
+\mathrm{P}&= \left\Vert \begin{matrix} \frac{1}{2} & \frac{1}{2} & 0\\
+\frac{1}{2} &0 & \frac{1}{2}\\
+0 & 0 & 1 \end{matrix} \right\Vert
+\end{align}$$
+We then invoke a first step analysis, in order to find the mean time to reach state $2$.
+
+$$T = \min \left\{ n \geq 0 \mid X_{n}=2 \right\}$$
+want to find
+$$\nu = \mathbb{E} \left[T \mid X_{0}=0\right]$$
+- $\nu_{0}= \frac{1}{2} \nu_{0} + \frac{1}{2} \nu_{1}$
+	- $\implies \nu_{0}= \frac{1}{2} \nu_{0}+ \frac{1}{2} \left(  \frac{1}{2} \nu_{0}+1 \right)$
+	- $\nu_{0}=\frac{3}{4}\nu_{0}+ \frac{1}{2}$
+	- $\implies \nu_{0}=2$
+- $\nu_{1}=\frac{1}{2}\nu_{0}+1$
+
 
 #### **3.4.6**
 Markov chain with probability transition matrix:
@@ -376,7 +398,6 @@ W_{ij} &= \mathbb{E} \left( \sum\limits_{k=0}^{n} \mathbb{1} \left( X_{k}=j \rig
 
 ## **Exercises**
 #### **3.6.1**
-
 Rat in a maze. States are $X_{n} \in \left\{ 0 (\text{shock}),1,2,3,4,5 (\text{food})\right\}$.
 
 **a) Assume that the rat is equally likely to move right or left at each step. What is the probability that the rat finds the food before getting shocked?**
@@ -405,7 +426,7 @@ $$\mathbf{P}= \left\Vert \begin{matrix} 1 & 0 & 0 & 0 & 0 & 0 \\ \frac{1}{2} &  
 Formally:
 
 $$T = \min \left\{ n \geq 0 \mid X_{n}=5 \right\}$$
-Probability of ending up in state $5$, starting in any state $k \in \left\{ 1,2,3,4 \right\}$
+*Probability of absorbing up in state $5$, starting in any state $k \in \left\{ 1,2,3,4 \right\}$, is the same as $1-\text{ Probability of absorbing in other absorbing state}$*.
 $$\begin{align}
 \operatorname{P} \left( X_{T}=5 \mid X_{0}=k \right) &=1-\operatorname{P} \left( X_{T}=0 \mid X_{0}=k \right)\\
 \implies \operatorname{P} \left( X_{T}=5 \mid X_{0}=k \right) &= 1-u_{k} \\

@@ -298,4 +298,16 @@ $$g(i) = \delta_{ik}=\begin{cases} 1 & \text{if } i=k, \\
 determines $W_{ik}$, the mean number of visits to state $k$ prior to absorption starting from state $i$, as solving
 $$
 \mathrm{W}_{ik}=\delta_{ik}+\sum\limits_{j=0}^{r-1} \mathrm{P}_{ij} \mathrm{W}_{jk}
-$$ 
+$$
+
+### Law of Total Probability
+
+For mutually exclusive events $A_{i}, \ i = 1, \dots$
+$$\bigcup_{i}A_{i}= \Omega$$
+Law of total probability 
+$$P(B) = \sum\limits_{i}^{}P(A_{i})P(B|A_{i}) = \sum\limits_{i}^{}P(B \cap A_{i})$$
+
+$$\begin{align}
+P(A \cap B \cap C) &= P(C | A \cap B)P(A \cap B) \\
+&= P(C|A \cap B)P(B|A) P(A)
+\end{align}$$
