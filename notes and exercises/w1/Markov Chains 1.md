@@ -17,6 +17,7 @@ $$
 \end{align}
 $$
 ^markov-property
+
 for all time points $n$ and all states $i_{0}, \dots , i_{n-1}, i, j$. ^8349f6
 
 ## One-Step Transition Probability

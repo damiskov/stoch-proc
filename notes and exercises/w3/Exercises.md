@@ -15,7 +15,7 @@ $$\begin{align}
 So we have the limiting distribution
 
 $$
-\left[\pi_{0}, \pi_{1}, \pi_{2}\right] = \left[0.476, 0.238, 0.286\right]
+\left[\pi_{0}, \pi_{1}, \pi_{2}\right] = \left[0.476, 0.238, 0.286\right] \checkmark
 $$
 # 4.3.1 - Equivalence Classes
 
@@ -51,7 +51,7 @@ $$\begin{align}
 \end{align}$$
 ## a) Determine the limiting probability that the process is in state $0$
 $$\begin{align}
-\lim_{n \rightarrow \infty} \mathrm{P}^{n}_{00} = \pi_{0}=0.145 
+\lim_{n \rightarrow \infty} \mathrm{P}^{n}_{00} = \pi_{0}=0.145 \checkmark 
 \end{align}$$
 ## b) By pretending that state 0 is absorbing, use a first step analysis (Chapter 3, Section 3.4) and calculate the mean time $m_{10}$ for the process to go from state $1$ to state $0$.
 
@@ -78,14 +78,16 @@ $$
 \end{align}
 $$
 and the mean time to absorption from state $0$ to state $1$ is clearly 
-$$\nu_{0}=5.90$$
+$$\nu_{0}=5.90 \checkmark$$
 # c) Because the process always goes directly to state $1$ from state $0$, the mean return time to state $0$ is $m_{0} = 1 + m_{10}$ . Verify equation ($4.26$), $π_0 = 1/m_0$
 
 Equation $4.26$ is given in [[Markov Chains 3#The Basic Limit Theorem of Markov Chains#Theorem 4.3 - The basic limit theorem of Markov Chains|Theorem 4.3 - The basic limit theorem of Markov Chains]]:
 $$\lim_{n \rightarrow \infty}P_{ii}^{(n)} = \frac{1}{\sum\limits_{n=0}^{\infty} n \cdot f_{ii}^{(n)}}= \frac{1}{m_{i}}$$
 Getting the limiting distribution:
 $$\pi\approx \begin{bmatrix} 0.14 & 0.41 & 0.29 & 0.15 \end{bmatrix}$$
-Therefore, $\pi_{0} = 0.14$. Given that $m_{0}=1+m_{10}=1+5.90=6.90$, we also have that $\pi_{0}=\frac{1}{m_{0}}=\frac{1}{6.90}\approx 0.14$.
+Therefore, $\pi_{0} = 0.14$. Given that $m_{0}=1+m_{10}=1+5.90=6.90$, we also have that $\pi_{0}=\frac{1}{m_{0}}=\frac{1}{6.90}\approx 0.14 \checkmark$.
+
+
 
 
 
